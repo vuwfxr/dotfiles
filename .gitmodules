@@ -1,0 +1,6 @@
+[submodule "xrdwm/st"]
+	path = xrdwm/st
+	url = git@github.com:vuwfxr/st.git
+[submodule "xrdwm/dwm"]
+	path = xrdwm/dwm
+	url = git@github.com:vuwfxr/dwm.git

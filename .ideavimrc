@@ -1,0 +1,157 @@
+" M->cmd, A->option, C->control
+" <ESC> - escape, <BS> - backspace, <CR> - return
+" ideavimrc 安装插件 IdeaVimExtension (处理输入法切换问题)
+
+" 设置 space 键为 leader 键
+noremap <SPACE> <Nop>
+let mapleader = " "
+
+""" plugins
+set surround
+" args operation e.g. replace arg : caa
+set argtextobj
+set multiple-cursors
+" set textobj-entire
+set ReplaceWithRegister
+" 中英文自动切换
+set keep-english-in-normal-and-restore-in-insert
+
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+
+""" Idea specific settings ------------------
+set ideajoin
+set idearefactormode=keep
+
+syntax on
+" 显示行号
+set number
+" 显示相对行号
+set relativenumber
+" 高亮搜索
+set hlsearch
+" 自动定位到输入中的字符串，不需要回车搜索
+set incsearch
+set fdm=indent
+set nowrap
+set ruler
+set showmatch
+" 补全增强
+set wildmenu
+" 显示当前的模式
+set showmode
+set showcmd
+" 共享系统粘贴板
+set clipboard=unnamed
+set clipboard+=ideaput
+set noswapfile
+set nobackup
+set ideamarks
+" 连击时间
+set timeout=500
+" 搜索时智能匹配大小写
+set ignorecase smartcase
+
+
+""" run anything & search everything
+" 使用默认 double shift， double ctrl 快捷键
+"map ;s <Action>(SearchEverywhere)
+"map ;r <Action>(RunAnything)
+" intention quick fix
+map ;c <Action>(CodeCompletion)
+map ;j  <Action>(SmartTypeCompletion)
+nmap ;n <Action>(NewElement)
+
+" 标签页切换 ，前进后退
+noremap <leader>J gT
+noremap <leader>K gt
+map <leader>H <Action>(Back)
+map <leader>L <Action>(Forward)
+" 方法跳转
+noremap <leader>[ <ESC>:action MethodUp<CR>
+noremap <leader>] <ESC>:action MethodDown<CR>
+
+" 常用的跳转使用 g 开头的快捷键
+" goto class
+noremap gc <ESC>:action GotoClass<CR>
+" goto method
+noremap gm <ESC>:action GotoSymbol<CR>
+" goto file
+noremap gf <ESC>:action GotoFile<CR>
+" goto source
+noremap gs <ESC>:action GotoImplementation<CR>
+" go to test
+noremap gt <ESC>:action GotoTest<CR>
+" switcher
+noremap gw <ESC>:action RecentFiles<CR>
+" InProject
+noremap g` <ESC>:action SelectIn<CR>
+
+" save and quit
+noremap <leader>q <ESC>:wq<CR>
+" hide all
+noremap <leader>h <ESC>:action HideAllWindows<CR>
+map <leader>i <Action>(ShowIntentionActions)
+map <leader>m <Action>(InsertLiveTemplate)
+map <leader>n <Action>(SurroundWithLiveTemplate)
+map <leader>b <Action>(Generate)
+
+
+" <leader>w window相关
+map <leader>wr <Action>(MoveTabRight)
+map <leader>wn <Action>(EditSourceInNewWindow)
+map <leader>wu <Action>(Unsplit)
+
+""" SEARCH & REPLACE
+" global find
+noremap <leader>/ <ESC>:action FindInPath<CR>
+" global replace
+noremap <leader>' <ESC>:action ReplaceInPath<CR>
+
+
+" refactor
+noremap <leader>t <ESC>:action Refactorings.QuickListPopupAction<CR>
+
+" <leader>s leader show
+noremap <leader>sf <ESC>:action FavoritesViewPopupMenu<CR>
+" usage
+noremap <leader>su <ESC>:action ShowUsages<CR>
+" structure
+noremap <leader>ss <ESC>:action FileStructurePopup<CR>
+" param info
+noremap <leader>sp <ESC>:action ParameterInfo<CR>
+" hierarchy
+noremap <leader>sc <ESC>:action CallHierarchy<CR>
+noremap <leader>st <ESC>:action TypeHierarchy<CR>
+noremap <leader>sm <ESC>:action MethodHierarchy<CR>
+
+" jump to next error
+noremap <leader>pn <ESC>:action GotoNextError<CR>
+" jump to previous error，就近原则
+noremap <leader>pp <ESC>:action GotoPreviousError<CR>
+" error description
+noremap <leader>pd <ESC>:action ShowErrorDescription<CR>
+" 粘贴最近复制寄存器
+noremap <leader>; "0p
+
+""" Bookmarks
+
+""" RUN & DEBUGGING debug use default
+
+
+""" leader e 与 External tools 相关的快捷键
+" use nvim edit current file
+map <leader>ee <Action>(Tool_External Tools_nvim-editor)
+
+
+""" leader g 与 git 相关的快捷键
+map <leader>gc <Action>(Show.Current.Revision)
+map <leader>gh <Action>(Vcs.ShowHistoryForBlock)
+""" third part plugins
+" ideajoin
+noremap <C-J> <ESC>:action EditorJoinLines<CR>
+" translator(third party plugin)
+"noremap gt <ESC>:action $EditorTranslateAction<CR>
+
+" Use ctrl-c as an ide shortcut in normal and visual modes
+" sethandler <C-C> n-v:ide i:vim
