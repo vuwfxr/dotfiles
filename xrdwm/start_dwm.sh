@@ -48,6 +48,5 @@ export _JAVA_AWT_WM_NONREPARENING=1
 ##
 
 # last, launch dwm
-# while dwm; [ $? -ne 0 ]; do echo "start dwm"; done
-exec ~/dotfiles/xrdwm/dwm/dwm
+while dwm; [ $? -ne 0 ]; do echo "start dwm"; done
 
