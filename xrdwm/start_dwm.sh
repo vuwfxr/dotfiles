@@ -13,10 +13,10 @@ done
 xsetroot -cursor_name left_ptr
 
 # Polkit agent
-/usr/lib/xfce-polkit/xfce-polkit &
+#/usr/lib/xfce-polkit/xfce-polkit &
 
 # enable power manager
-xfce4-power-manager &
+#xfce4-power-manager &
 
 # enable super key (win) for menu
 ksuperkey -e 'Super_L=Alt_L|F1' &
@@ -38,6 +38,10 @@ feh --bg-fill ~/Pictures/wallpapers/forest.jpg
 
 # start mpd
 mpd &
+
+fcitx5 &
+
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
 # fix Java problems
 wmname "LG3D"
