@@ -4,3 +4,7 @@ keysym Caps_Lock = Escape
 keysym Escape = Caps_Lock
 add Lock = Caps_Lock
 
+
+!! swap mouse Left (1) and Right(3) key
+pointer = 3 2 1 4 5
+
