@@ -6,7 +6,7 @@
 interval=0
 
 # load colors
-. ~/dotfiles/xrdwm/scripts/bar_themes/nord
+. ~/dotfiles/xrdwm/scripts/bar_themes/catppuccin
 
 cpu() {
   cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
@@ -51,7 +51,7 @@ wlan() {
 
 clock() {
 	printf "^c$black^ ^b$darkblue^  "
-	printf "^c$black^^b$blue^ $(date '+%H:%M')  "
+	printf "^c$black^^b$blue^ $(date '+%m-%d %H:%M')  "
 }
 
 while true; do

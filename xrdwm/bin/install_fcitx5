@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+sudo pacman -S fcitx5 fcitx5-chinese-addons fcitx5-gtk fcitx5-qt kcm-fcitx5 fcitx5-material-color
+
+#cat ~/.pam_environment
+#INPUT_METHOD  DEFAULT=fcitx5
+#GTK_IM_MODULE DEFAULT=fcitx5
+#QT_IM_MODULE  DEFAULT=fcitx5
+#XMODIFIERS    DEFAULT=@im=fcitx5
+
+

@@ -24,11 +24,15 @@ ksuperkey -e 'Super_L=Alt_L|F1' &
 # set wallpaper
 feh --bg-fill ~/Pictures/wallpapers/forest.jpg
 
-# launch dwm bar
-~/dotfiles/xrdwm/scripts/bar.sh &
-
 # launch notification daemon (dunst)
 ~/dotfiles/xrdwm/scripts/notificaton.sh
+
+# launch dwm bar
+if pgrep -u $USER bar.sh > /dev/null;
+then
+  pkill -u $USER bar.sh
+fi
+~/dotfiles/xrdwm/scripts/bar.sh &
 
 # launch compositor (picom)
 ~/dotfiles/xrdwm/scripts/picom.sh
@@ -39,10 +43,14 @@ feh --bg-fill ~/Pictures/wallpapers/forest.jpg
 # start mpd
 mpd &
 
+# start fcitx
+fcitx5 &
+
 # fix Java problems
 wmname "LG3D"
 export _JAVA_AWT_WM_NONREPARENING=1
 
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 ## add other autostart script & programs
 
 ##

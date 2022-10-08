@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+## Script to change volume with pamixer  
+
+notify_view="dunstify -u low -i /usr/share/archcraft/icons/dunst/volume-mid.png"
+
+current_volume() {
+  vol="Volume:$(pamixer --get-volume-human)"
+  echo $vol
+}
+
+increase_volume() {
+  pamixer --increase 10
+  vol=`current_volume`
+  ${notify_view} `current_volume`
+}
+
+
+decrease_volume() {
+  pamixer --decrease 10
+  vol=`current_volume`
+  ${notify_view} `current_volume`
+}
+
+
+# decrease_volume
